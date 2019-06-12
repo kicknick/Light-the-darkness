@@ -6,10 +6,10 @@
 			position: relative;
 			margin-left: auto;
     		margin-right: auto;
-    		width: 95vmin;
+    		width: 84vmin;
 		}
 		#timer {
-			width: 100%;
+			width: 84vmin;
 			margin-bottom: 2vmin;
 			border: solid ;
 			position: relative;
@@ -19,7 +19,7 @@
 		}
 
 		#game {
-			height: 98vmin;
+			height: 84vmin;
 /*			border: solid black;*/
 			margin-left: auto;
     		margin-right: auto;
@@ -38,34 +38,46 @@
 		#done{
 			border: black solid;
 			text-align: center;
-			width: 100%;
+			width: 84vmin;
 			position: relative;
 			font-family: tahoma;
 			cursor: pointer;
+			margin-top:3vmin; 
 		}
 		#done h3 {
 			font-weight: normal;
-			font-size:6vmin;
+			font-size:5vmin;
 		}
 		#rules {
 			padding: 5vmin;
 		}
 
 		#rules h4{
-			font-size: 12px;
 			font-weight: normal;
-			font-size:4vmin;
+			font-size:3vmin;
 		}
 		.block, .empty {
 			cursor:default; 
 			position:absolute; 
 			text-align:center; 
 			font-weight:bold; 
-			font-size:11vmin; 
+			font-size:10vmin; 
 			color:white;  
 			border: solid black;
-			width:13.6vmin; 
-			height:13.6vmin;
+			width:12vmin; 
+			height:12vmin;
+		}
+		#alert {
+			border: solid black;
+			position: absolute;
+			background: white;
+			width: 100%;
+			top: 40vmin;
+			height: 15vmin;
+			z-index: 100;
+			text-align: center;
+			font-size:10vmin; 
+			display: none;
 		}
 	</style>
 </head>
@@ -73,6 +85,7 @@
 	<div id="main">
 		<div id="timer">00:00</div>
 		<div id="game"></div>
+		<div id ="alert">"WELL DONE!"</div>
 		<div id="done"><h3>DONE</h3></div>
 	</div>
 	<div id="rules">
@@ -99,8 +112,8 @@ Left click a square to place a light bulb.</h4>
 		while (game.firstChild) game.removeChild(game.firstChild); // clean all
 		for(i=0; i<7; i++){
 			for(j=0; j<7; j++){
-				t = i*13.6;
-				l = j*13.6;
+				t = i*12;
+				l = j*12;
 				d = document.createElement("div")
 				type = map[i][j].type
 				attr = map[i][j].attr
@@ -239,12 +252,14 @@ Left click a square to place a light bulb.</h4>
 				checkArr[i].push(s-t)
 			}
 		}
-		console.log(s)
-		console.log(checkArr)
-		console.log(map)
+		// console.log(s)
+		// console.log(checkArr)
+		// console.log(map)
+		alert = document.getElementById("alert");
 		if(s == 49) {
 			clearInterval(refreshIntervalId);
-			alert("well done!")
+			alert.setAttribute("style", "display:block");
+			alert.innerHTML = "WELL DONE!"
 		}
 		//else alert("not yet")
 	}
