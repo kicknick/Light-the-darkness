@@ -5,46 +5,67 @@
 		#main {
 			position: relative;
 			margin-left: auto;
-    	margin-right: auto;
-    	width: 6em;
+    		margin-right: auto;
+    		width: 95vmin;
 		}
 		#timer {
-			width: 175px;
-			height: 20px;
-			border: solid;
+			width: 100%;
+			margin-bottom: 2vmin;
+			border: solid ;
 			position: relative;
 			text-align: center;
 			font-family: tahoma;
+			font-size:6vmin;
 		}
 
 		#game {
-			width: 175px;
-			height: 175px;
-			border: solid black;
+			height: 98vmin;
+/*			border: solid black;*/
+			margin-left: auto;
+    		margin-right: auto;
 			position: relative;
 			display: inline-block;
 			font-family: tahoma;
 		}
 		#rules {
 /*			border: solid black;*/
+			width: 100%
 			position: relative;
 			padding: 10px;
 			font-family: tahoma;
 		}
-		#rules h4{
-			font-size: 12px;
-			font-weight: normal;
-		}
+
 		#done{
 			border: black solid;
 			text-align: center;
-			width: 175px;
+			width: 100%;
 			position: relative;
 			font-family: tahoma;
 			cursor: pointer;
 		}
 		#done h3 {
 			font-weight: normal;
+			font-size:6vmin;
+		}
+		#rules {
+			padding: 5vmin;
+		}
+
+		#rules h4{
+			font-size: 12px;
+			font-weight: normal;
+			font-size:4vmin;
+		}
+		.block, .empty {
+			cursor:default; 
+			position:absolute; 
+			text-align:center; 
+			font-weight:bold; 
+			font-size:11vmin; 
+			color:white;  
+			border: solid black;
+			width:13.6vmin; 
+			height:13.6vmin;
 		}
 	</style>
 </head>
@@ -78,8 +99,8 @@ Left click a square to place a light bulb.</h4>
 		while (game.firstChild) game.removeChild(game.firstChild); // clean all
 		for(i=0; i<7; i++){
 			for(j=0; j<7; j++){
-				t = i*25;
-				l = j*25
+				t = i*13.6;
+				l = j*13.6;
 				d = document.createElement("div")
 				type = map[i][j].type
 				attr = map[i][j].attr
@@ -93,7 +114,7 @@ Left click a square to place a light bulb.</h4>
 							else symbol = "🔴"
 							color = "yellow"
 						}
-				d.setAttribute("style", "cursor:default; position:absolute; text-align:center; font-weight:bold; font-size:20px; color:white;  background:"+color+"; border: 1px solid black; width:25px; height:25px; top:"+t+"px; left:"+l+"px");
+				d.setAttribute("style", "background:"+color+";  top:"+t+"vmin; left:"+l+"vmin");
 				d.setAttribute("class", type != 1 ? "empty" : "block")
 				d.setAttribute("id", i+":"+j)
 				d.innerHTML = symbol
