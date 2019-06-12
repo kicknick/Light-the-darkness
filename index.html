@@ -1,5 +1,6 @@
 <html>
 <head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<title>Light the darkness!</title>
 	<style type="text/css">
 		#main {
@@ -73,11 +74,12 @@
 			background: white;
 			width: 100%;
 			top: 40vmin;
-			height: 15vmin;
+			height: 8vmin;
 			z-index: 100;
 			text-align: center;
-			font-size:10vmin; 
+			font-size: 5vmin; 
 			display: none;
+			font-family: tahoma;
 		}
 	</style>
 </head>
@@ -120,12 +122,12 @@ Left click a square to place a light bulb.</h4>
 				symbol = ""
 				if(type == 1) {color = "black", symbol=(attr!=0)?attr:""} //block
 					else if(type == 0){ //empty
-						if(attr == 1) color = "yellow"
+						if(attr == 1) color = "#ffff99"
 						else color = "white"
-					}	else {						//bulb
-							if(attr == 0) symbol = "💡" //💡
-							else symbol = "🔴"
-							color = "yellow"
+					}	else {						//bulb f
+							if(attr == 0) symbol = '<i class="bulbIcon fas fa-lightbulb" style="color:black; font-size:6vmax; text-align: center; padding-top:1.5vmax"></i>' //💡
+							else symbol = '<i class="bulbIcon fas fa-lightbulb" style="color:red; font-size:6vmax; text-align: center; padding-top:1.5vmax"></i>'
+							color = "#ffff99"
 						}
 				d.setAttribute("style", "background:"+color+";  top:"+t+"vmin; left:"+l+"vmin");
 				d.setAttribute("class", type != 1 ? "empty" : "block")
@@ -135,17 +137,23 @@ Left click a square to place a light bulb.</h4>
 			}
 		}
 		emptys = document.getElementsByClassName('empty')
+		bulbIcons = document.getElementsByClassName('bulbIcon')
 		for(i=0; i<emptys.length; i++) {
 		emptys[i].addEventListener('click', function (event) {
-		            //console.log(event.srcElement.id)
-		            putBulb(event.srcElement.id.split(":"))
-		        });
+				putBulb(event.srcElement.id.split(":"))
+		    });
+		}
+		for(i=0; i<bulbIcons.length; i++) {
+			bulbIcons[i].addEventListener('click', function (event) {
+				putBulb(event.srcElement.parentElement.id.split(":"))
+			});
 		}
 	}
 	render();
 
 	function putBulb(coord) {
 		i = parseInt(coord[0]); j = parseInt(coord[1]);
+		console.log(i, j)
 		type = map[i][j].type
 		if(type == 0) { //set bulb
 			map[i][j].type = 3
@@ -261,7 +269,15 @@ Left click a square to place a light bulb.</h4>
 			alert.setAttribute("style", "display:block");
 			alert.innerHTML = "WELL DONE!"
 		}
-		//else alert("not yet")
+		else{
+			alert.setAttribute("style", "display:block");
+			alert.innerHTML = "not yet"
+			clearAlert = function() {
+				alert.setAttribute("style", "display:none");
+				clearInterval(refreshId);
+			}
+			refreshId = setInterval(clearAlert, 3000);
+		}
 	}
 
 	document.getElementById("done").addEventListener('click', function (event) {
