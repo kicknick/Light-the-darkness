@@ -2,6 +2,7 @@
 <head>
 <!-- 	<meta name="viewport" content= "width=device-width, user-scalable=no"> -->
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 <!-- 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<title>Light the darkness!</title>
@@ -100,14 +101,22 @@
 
 
 	<script type="text/javascript">
-	map = [[{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":2}, {"type":1, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
-				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":3}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
-				 [{"type":0, "attr":0}, {"type":1, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}], 
-				 [{"type":1, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}],
-				 [{"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}, {"type":0, "attr":0}], 
-				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}],
-				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":0, "attr":0}]] 
+	// map = [[{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":2}, {"type":1, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+	// 			 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":3}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+	// 			 [{"type":0, "attr":0}, {"type":1, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}], 
+	// 			 [{"type":1, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}],
+	// 			 [{"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}, {"type":0, "attr":0}], 
+	// 			 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}],
+	// 			 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":0, "attr":0}]] 
 				 //type: 0-empty \ 1-block \ 2-bulb //attr0: 0|1 //attr1: number //attr2: 0|1 (not or red)
+
+		map=[[{"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}], 
+				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+				 [{"type":1, "attr":0}, {"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":1, "attr":null}],
+				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+				 [{"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}],
+				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}]] 
 	game = document.getElementById("game")
 
 
@@ -121,7 +130,7 @@
 				type = map[i][j].type
 				attr = map[i][j].attr
 				symbol = ""
-				if(type == 1) {color = "black", symbol=(attr!=0)?attr:""} //block
+				if(type == 1) {color = "black", symbol=(attr!=null)?attr:""} //block
 					else if(type == 0){ //empty
 						if(attr == 1) color = "#ffff99"
 						else color = "white"
@@ -141,7 +150,7 @@
 		bulbIcons = document.getElementsByClassName('bulbIcon')
 		for(i=0; i<emptys.length; i++) {
 		emptys[i].addEventListener('click', function (event) {
-				putBulb(event.srcElement.id.split(":"))
+					putBulb(event.srcElement.id.split(":"))
 		    });
 		}
 		for(i=0; i<bulbIcons.length; i++) {
@@ -154,7 +163,7 @@
 
 	function putBulb(coord) {
 		i = parseInt(coord[0]); j = parseInt(coord[1]);
-		console.log(i, j)
+		//console.log(i, j, map[i][j].type)
 		type = map[i][j].type
 		if(type == 0) { //set bulb
 			map[i][j].type = 3
@@ -257,12 +266,22 @@
 					if(i-1>=0 && map[i-1][j].type == 3) numOfBulbsAround++;
 					if(numOfBulbsAround == map[i][j].attr) s++; 
 				}
-				else if(map[i][j].type == 1 && map[i][j].attr == 0) s++; 
+				else if(map[i][j].type == 1 && map[i][j].attr == null) s++; 
+				else if(map[i][j].type == 1 && map[i][j].attr == 0) {
+
+					if(i > 0 && map[i-1][j].type != 3 || i==0) { console.log(map[i-1][j], i, j)
+						if(j > 0 && map[i][j-1].type != 3 || j==0) { console.log(map[i][j-1], i, j)
+							if(i < 5 && map[i+1][j].type != 3 || i==6) { console.log(map[i+1][j], i, j)
+								if(j < 5 && map[i][j+1].type != 3 || j==6) {s++; console.log(map[i][j+1], i, j)}
+							}
+						}
+					} 
+				} 
 				checkArr[i].push(s-t)
 			}
 		}
-		// console.log(s)
-		// console.log(checkArr)
+		console.log(s)
+		console.log(checkArr)
 		// console.log(map)
 		alert = document.getElementById("alert");
 		if(s == 49) {
