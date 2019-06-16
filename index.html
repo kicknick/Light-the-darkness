@@ -10,8 +10,8 @@
 		#main {
 			position: relative;
 			margin-left: auto;
-    		margin-right: auto;
-    		width: 84vmin;
+    	margin-right: auto;
+    	width: 84vmin;
 		}
 		#timer {
 			width: 84vmin;
@@ -25,9 +25,9 @@
 
 		#game {
 			height: 84vmin;
-/*			border: solid black;*/
+/*		border: solid black;*/
 			margin-left: auto;
-    		margin-right: auto;
+    	margin-right: auto;
 			position: relative;
 			display: inline-block;
 			font-family: tahoma;
@@ -72,6 +72,11 @@
 			width:12vmin; 
 			height:12vmin;
 		}
+		.empty i {
+			margin-left: auto;
+    	margin-right: auto;
+		}
+
 		#alert {
 			border: solid black;
 			position: absolute;
@@ -113,16 +118,24 @@
 	// 			 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":0, "attr":0}]] 
 				 //type: 0-empty \ 1-block \ 2-bulb //attr0: 0|1 //attr1: number //attr2: 0|1 (not or red)
 
-		map=[[{"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
-				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}], 
-				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
-				 [{"type":1, "attr":0}, {"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":1, "attr":null}],
-				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
-				 [{"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}],
-				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}]] 
+		// map=[[{"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+		// 		 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":0}], 
+		// 		 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+		// 		 [{"type":1, "attr":0}, {"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":1, "attr":null}],
+		// 		 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+		// 		 [{"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}],
+		// 		 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}]] 
+
+		map=[[{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":1}, {"type":0, "attr":0}], 
+				 [{"type":1, "attr":1}, {"type":0, "attr":0}, {"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}], 
+				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}],
+				 [{"type":0, "attr":0}, {"type":1, "attr":2}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}], 
+				 [{"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":1, "attr":3}, {"type":0, "attr":0}, {"type":1, "attr":0}],
+				 [{"type":0, "attr":0}, {"type":1, "attr":null}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}, {"type":0, "attr":0}]] 
+	
+
 	game = document.getElementById("game")
-
-
 	render = function() {
 		while (game.firstChild) game.removeChild(game.firstChild); // clean all
 		for(i=0; i<7; i++){
@@ -272,10 +285,10 @@
 				else if(map[i][j].type == 1 && map[i][j].attr == null) s++; 
 				else if(map[i][j].type == 1 && map[i][j].attr == 0) {
 
-					if(i > 0 && map[i-1][j].type != 3 || i==0) { console.log(map[i-1][j], i, j)
-						if(j > 0 && map[i][j-1].type != 3 || j==0) { console.log(map[i][j-1], i, j)
-							if(i < 5 && map[i+1][j].type != 3 || i==6) { console.log(map[i+1][j], i, j)
-								if(j < 5 && map[i][j+1].type != 3 || j==6) {s++; console.log(map[i][j+1], i, j)}
+					if(i > 0 && map[i-1][j].type != 3 || i==0 || j==0) { console.log(map[i-1][j], i-1, j)
+						if(j > 0 && map[i][j-1].type != 3 || i==0 || j==0) { console.log(map[i][j-1], i, j-1)
+							if(i < 5 && map[i+1][j].type != 3 || i==6 || j==6) { console.log(map[i+1][j], i+1, j)
+								if(j < 5 && map[i][j+1].type != 3 || i==6 || j==6) {s++; console.log(map[i][j+1], i, j+1)}
 							}
 						}
 					} 
